@@ -1,8 +1,11 @@
 # Node User API
 
-API REST desenvolvida com Node.js, Express, Prisma ORM e MongoDB.
+API REST desenvolvida com Javascript / Node.js, Express, Prisma ORM e MongoDB.
 
-O projeto foi criado com foco em praticar arquitetura backend, separação de responsabilidades e operações CRUD.
+## Pré-requisitos
+
+- Node.js instalado
+- MongoDB Atlas ou MongoDB local
 
 ## Funcionalidades
 
@@ -10,36 +13,15 @@ O projeto foi criado com foco em praticar arquitetura backend, separação de re
 - Listar usuários
 - Atualizar usuários
 - Remover usuários
-- Filtro de usuários por nome, email e idade
-- Tratamento básico de erros
+- Filtrar usuários
 
-## Tecnologias utilizadas
+## Tecnologias
 
+- Javascript
 - Node.js
 - Express
 - Prisma ORM
 - MongoDB
-
-## Estrutura do projeto
-
-```plaintext
-src/
-├── config/
-├── controllers/
-├── routes/
-├── services/
-```
-
-## Conceitos praticados
-
-- API REST
-- Arquitetura em camadas
-- CRUD
-- Rotas HTTP
-- Controllers e Services
-- Integração com banco de dados
-- Prisma ORM
-- Tratamento de erros
 
 ## Instalação
 
@@ -47,8 +29,63 @@ src/
 npm install
 ```
 
+## Configuração
+
+Crie um arquivo `.env`:
+
+```env
+DATABASE_URL="sua_url_mongodb"
+```
+
 ## Executando o projeto
 
 ```bash
 npm run dev
 ```
+
+Servidor:
+```plaintext
+http://localhost:3000
+```
+
+---
+
+# Endpoints
+
+## Criar usuário
+
+POST `/usuarios`
+
+Exemplo:
+
+```json
+{
+  "name": "Marcos",
+  "email": "marcos@email.com",
+  "age": 22
+}
+```
+
+---
+
+## Listar usuários
+
+GET `/usuarios`
+
+Filtro opcional:
+
+```plaintext
+/usuarios?name=marcos
+```
+
+---
+
+## Atualizar usuário
+
+PUT `/usuarios/:id`
+
+---
+
+## Deletar usuário
+
+DELETE `/usuarios/:id`
