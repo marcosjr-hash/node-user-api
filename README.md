@@ -57,10 +57,23 @@ http://localhost:3000
 
 POST `/usuarios`
 
-Exemplo:
+Cria um novo usuário no banco de dados.
+
+### Exemplo de requisição
 
 ```json
 {
+  "name": "Marcos",
+  "email": "marcos@email.com",
+  "age": 22
+}
+```
+
+### Exemplo de resposta
+
+```json
+{
+  "id": "685f4f8a1b2c3d4e5f6g7h8",
   "name": "Marcos",
   "email": "marcos@email.com",
   "age": 22
@@ -83,21 +96,19 @@ Retorna todos os usuários cadastrados.
 
 ### Filtros opcionais
 
-É possível filtrar usuários utilizando query params.
-
-#### Filtrar por nome
+Filtrar por nome:
 
 ```plaintext
 /usuarios?name=marcos
 ```
 
-#### Filtrar por email
+Filtrar por email:
 
 ```plaintext
 /usuarios?email=marcos@email.com
 ```
 
-#### Filtrar por idade
+Filtrar por idade:
 
 ```plaintext
 /usuarios?age=22
@@ -116,25 +127,43 @@ Retorna todos os usuários cadastrados.
 ]
 ```
 
+---
+
 ## Atualizar usuário
 
 PUT `/usuarios/:id`
 
-Exemplo:
+Atualiza os dados de um usuário existente.
+
+### Exemplo de requisição
 
 ```json
 {
+  "name": "Marcos Junior",
+  "age": 23
+}
+```
+
+### Exemplo de resposta
+
+```json
+{
+  "id": "685f4f8a1b2c3d4e5f6g7h8",
   "name": "Marcos Junior",
   "email": "marcos@email.com",
   "age": 23
 }
 ```
 
+---
+
 ## Deletar usuário
 
 DELETE `/usuarios/:id`
 
-Resposta:
+Remove um usuário do banco de dados.
+
+### Exemplo de resposta
 
 ```json
 {
