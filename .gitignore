@@ -1,5 +1,28 @@
-node_modules
-# Keep environment variables out of version control
+# Dependências
+node_modules/
+
+# Variáveis de ambiente
 .env
 
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Prisma
 /generated/prisma
+prisma/generated/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+
+# Build
+dist/
+build/
+
+# Coverage
+coverage/
