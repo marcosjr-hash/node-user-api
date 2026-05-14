@@ -1,5 +1,5 @@
 // Importa o PrismaClient.
-// O Prisma é quem daz a ponte Node.js -> Bando de Dados.
+// O Prisma é quem faz a ponte Node.js -> Bando de Dados.
 import pkg from "@prisma/client";
 
 // Desestruturação. Pegamos apenas o PrismaClient.
