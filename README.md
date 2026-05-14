@@ -27,6 +27,7 @@ API REST desenvolvida com Javascript / Node.js, Express, Prisma ORM e MongoDB.
 
 ```bash
 npm install
+npx prisma generate
 ```
 
 ## Configuração
@@ -34,13 +35,13 @@ npm install
 Crie um arquivo `.env`:
 
 ```env
-DATABASE_URL="sua_url_mongodb"
+DATABASE_URL="mongodb+srv://usuario:senha@cluster.mongodb.net/database"
 ```
 
 ## Executando o projeto
 
 ```bash
-npm run dev
+npm start
 ```
 
 Servidor:
@@ -56,10 +57,23 @@ http://localhost:3000
 
 POST `/usuarios`
 
-Exemplo:
+Cria um novo usuário no banco de dados.
+
+### Exemplo de requisição
 
 ```json
 {
+  "name": "Marcos",
+  "email": "marcos@email.com",
+  "age": 22
+}
+```
+
+### Exemplo de resposta
+
+```json
+{
+  "id": "685f4f8a1b2c3d4e5f6g7h8",
   "name": "Marcos",
   "email": "marcos@email.com",
   "age": 22
@@ -72,10 +86,45 @@ Exemplo:
 
 GET `/usuarios`
 
-Filtro opcional:
+Retorna todos os usuários cadastrados.
+
+### Exemplo de requisição
+
+```plaintext
+/usuarios
+```
+
+### Filtros opcionais
+
+Filtrar por nome:
 
 ```plaintext
 /usuarios?name=marcos
+```
+
+Filtrar por email:
+
+```plaintext
+/usuarios?email=marcos@email.com
+```
+
+Filtrar por idade:
+
+```plaintext
+/usuarios?age=22
+```
+
+### Exemplo de resposta
+
+```json
+[
+  {
+    "id": "685f4f8a1b2c3d4e5f6g7h8",
+    "name": "Marcos",
+    "email": "marcos@email.com",
+    "age": 22
+  }
+]
 ```
 
 ---
@@ -84,8 +133,40 @@ Filtro opcional:
 
 PUT `/usuarios/:id`
 
+Atualiza os dados de um usuário existente.
+
+### Exemplo de requisição
+
+```json
+{
+  "name": "Marcos Junior",
+  "age": 23
+}
+```
+
+### Exemplo de resposta
+
+```json
+{
+  "id": "685f4f8a1b2c3d4e5f6g7h8",
+  "name": "Marcos Junior",
+  "email": "marcos@email.com",
+  "age": 23
+}
+```
+
 ---
 
 ## Deletar usuário
 
 DELETE `/usuarios/:id`
+
+Remove um usuário do banco de dados.
+
+### Exemplo de resposta
+
+```json
+{
+  "message": "Usuário deletado com sucesso"
+}
+```
